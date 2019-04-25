@@ -3,8 +3,8 @@ Repository for Global Gaming code challenge 2.1 for .NET applicants
 
 ## Installation
 
-
-
+### Pakages needed
+Nuget MySql.Data
 
 ## Decisions made
 
