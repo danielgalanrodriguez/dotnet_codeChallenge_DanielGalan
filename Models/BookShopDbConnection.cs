@@ -4,14 +4,15 @@ using MySql.Data.MySqlClient;
 
 namespace dotnet_codeChallenge_DanielGalan.Models
 {
-    public class BookShopDbConnexion 
+    public class BookShopDbConnection 
     {
 
         private static string myDbConnectionString = "server=localhost;database=bookShop;user=root;port=3306;password=";
-        private static string errorFeedback = "Sorry, something happened processing your action, please try again. If the problem persists please contact us.";
+        private static string successFeedback = "1";
+        
 
         private MySqlConnection myDbConnection;
-        public BookShopDbConnexion()
+        public BookShopDbConnection()
         {
             
             this.myDbConnection = new MySqlConnection(myDbConnectionString); 
@@ -24,9 +25,9 @@ namespace dotnet_codeChallenge_DanielGalan.Models
             return this.myDbConnection;
         }
 
-        public string getErrorFeedback()
+         public string getSuccessFeedback()
         {
-            return errorFeedback;
+            return successFeedback;
         }
 
     }

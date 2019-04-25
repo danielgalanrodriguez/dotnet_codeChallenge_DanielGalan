@@ -10,11 +10,12 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class BooksController : ControllerBase
     {
 
-               // GET: api/user
+               // GET: api/books
         [HttpGet]
+        [Produces("application/json")]
         public IEnumerable<string> get()
         {   
             Books books = new Books();
@@ -23,15 +24,15 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
         }
 
 
-        // GET: api/user/5
+        // GET: api/books/5
         [HttpGet("{id:int}")]
         public string get(int id)
         {
-            return  $"Hi! i'm user number {id}";
+            return  $"Hi! i'm book number {id}";
         }
 
 
-        // POST: api/user
+        // POST: api/books
         [HttpPost]
         public void post([FromBody]string value)
         {

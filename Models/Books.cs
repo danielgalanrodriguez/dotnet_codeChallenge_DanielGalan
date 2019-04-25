@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace dotnet_codeChallenge_DanielGalan.Models
@@ -8,21 +9,26 @@ namespace dotnet_codeChallenge_DanielGalan.Models
     {
         private MySqlConnection myDbConnection;
         private MySqlCommand myDbCommand;
-        private BookShopDbConnexion bookShopConnexion;
+        private BookShopDbConnection bookShopConnection;
 
         public Books()
         {
-            this.bookShopConnexion = new BookShopDbConnexion();
+            this.bookShopConnection = new BookShopDbConnection();
             
-            this.myDbConnection = this.bookShopConnexion.getDbConnexion();
+            this.myDbConnection = this.bookShopConnection.getDbConnexion();
             this.myDbCommand =  myDbConnection.CreateCommand(); 
             
+        }
+
+                private static string ReadSingleRow(IDataRecord record)
+        {
+            return String.Format("{0},{1},{2}", record[1], record[2],record[3]);
         }
 
         public string getAllBooks() 
         {
 
-            List<string> myData = new List<string>();
+            List<string> queryResult = new List<string>();
 
             myDbCommand.CommandText = "SELECT * FROM Books";
 
@@ -31,22 +37,58 @@ namespace dotnet_codeChallenge_DanielGalan.Models
             myDbConnection.Open();
 
             MySqlDataReader myDataReader = myDbCommand.ExecuteReader();
-
+            
             while(myDataReader.Read())
             {
-                myData.Add(myDataReader["title"].ToString());
+                queryResult.Add(myDataReader["title"].ToString());
             }
-            string joined = String.Join(",", myData);
-       
-            myDbCommand.Connection.Close();
+            
+            myDataReader.Close();
+
+            string joined = String.Join(",", queryResult);
+
+            myDbConnection.Close();
 
             return joined;
         }
         catch (Exception e)
         {
-             return this.bookShopConnexion.getErrorFeedback();
+             return e.ToString();
         }
            
+        }
+
+        public string getBookDetails (int bookId)
+        {
+            List<string> queryResult = new List<string>();
+
+            myDbCommand.CommandText = "SELECT * FROM Books WHERE id="+bookId;
+
+        try
+        {
+            myDbConnection.Open();
+
+            MySqlDataReader myDataReader = myDbCommand.ExecuteReader();
+            
+            while(myDataReader.Read())
+            {
+               // queryResult.Add(myDataReader.d);// .ToString());
+               queryResult.Add(ReadSingleRow((IDataRecord)myDataReader));
+            }
+            
+            myDataReader.Close();
+
+            string joined = String.Join(",", queryResult);
+
+            myDbConnection.Close();
+
+            return joined;
+        }
+        catch (Exception e)
+        {
+             return e.ToString();
+        }
+
         }
     }
 }
