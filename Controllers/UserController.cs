@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using dotnet_codeChallenge_DanielGalan.Models;
-using MySql.Data.MySqlClient;
 
 namespace dotnet_codeChallenge_DanielGalan.Controllers
 {
@@ -14,35 +13,18 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
     public class UserController : ControllerBase
     {
 
-        // GET: api/user
+               // GET: api/user
         [HttpGet]
         public IEnumerable<string> get()
-        {
-            BookShopDbConnexion bookShopConnexion = new BookShopDbConnexion();
-            MySqlConnection myDbConnection = bookShopConnexion.getDbConnexion();
-            MySqlCommand myDbCommand =  myDbConnection.CreateCommand(); 
-            List<string> myData = new List<string>();
+        {   
+            Books books = new Books();
 
-            myDbCommand.CommandText = "SELECT * FROM Books"; //myCommand.Connection = myConnection;
-        
-            myDbConnection.Open();
-
-            MySqlDataReader myDataReader = myDbCommand.ExecuteReader();
-
-            while(myDataReader.Read())
-            {
-                myData.Add(myDataReader["title"].ToString());
-            }
-            string joined = string.Join(",", myData);
-       
-            myDbCommand.Connection.Close();
-           
-            yield return joined;
+            yield return books.getAllBooks();
         }
 
 
         // GET: api/user/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public string get(int id)
         {
             return  $"Hi! i'm user number {id}";
@@ -53,7 +35,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
         [HttpPost]
         public void post([FromBody]string value)
         {
-            
+            //return  $"Hi! i'm user number {value}";
         }
         
     }
