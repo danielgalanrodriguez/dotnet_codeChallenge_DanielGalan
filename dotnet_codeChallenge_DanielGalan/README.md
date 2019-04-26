@@ -2,13 +2,16 @@
 Repository for Global Gaming code challenge 2.1 for .NET applicants
 
 ## Installation
-
+### Requirements
 The requirements to use this API are the followings:
 
 * .NET Core 2.2
 * Nuget MySql.Data package
 * Nuget Nunit
 * MySql server
+
+### Steps
+This steps are for linux O.S. . If you are using other O.S please change steps 5-8 for the appropriates of your O.S . 
 
 1. Download the repository.
 2. Install Nuget packages Nunit and MySql.data in dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan
