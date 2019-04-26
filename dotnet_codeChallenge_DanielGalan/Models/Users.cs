@@ -127,6 +127,35 @@ namespace dotnet_codeChallenge_DanielGalan.Models
 
         }
 
+    public int getLastUserId()
+        {
+            myDbCommand.CommandText = "SELECT MAX(id) as max FROM Users";
+            int result = 0;
+
+        try
+        {
+            myDbConnection.Open();
+
+            MySqlDataReader myDataReader = myDbCommand.ExecuteReader();
+            
+            while(myDataReader.Read())
+            {
+               result = int.Parse (myDataReader["max"].ToString());
+            }
+            
+            myDataReader.Close();
+
+            myDbConnection.Close();
+
+            return result;
+        }
+        catch (Exception e)
+        {
+             return -1;
+        }
+
+        }
+
         
     }
 }

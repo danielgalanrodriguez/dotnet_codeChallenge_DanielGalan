@@ -41,7 +41,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
            yield return user.deleteUser(id);
         }
 
-        // DELETE: api/users/1
+        // PUT: api/users/1
         [HttpPut("{id:int}")] 
         [Consumes("application/json")]
         [Produces("application/json")]
