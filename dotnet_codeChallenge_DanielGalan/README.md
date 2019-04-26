@@ -5,6 +5,7 @@ Repository for Global Gaming code challenge 2.1 for .NET applicants
 
 ### Pakages needed
 Nuget MySql.Data
+Nuget Nunit
 
 ## Decisions made
 
@@ -24,3 +25,13 @@ The controllers are located in the folder 'Controllers' inside the project root 
 
 To carry out the actions to the database, I have created a model folder that includes the classes that implement the actions.
 There is the class 'BookShopDbConnection' that creates the connection to the database. The other classes implement the actions for each table of the database.  
+
+### Testing
+
+I use Nunit package to test the code because it is the most popular and used. I have decided not to test the get requests because it is not a critical part and I do not have many time to spend creating tests for this requests.
+
+To test the update of a user I allways update the user with id 1. I wanted to update the user created to test the registration this would be my goal if I had more time.
+
+To test the elimination of a user, a new user is created and then deleted. I wanted to delete the user created to test the registration this would be my goal if I had more time.
+
+##
