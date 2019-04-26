@@ -26,12 +26,55 @@ The controllers are located in the folder 'Controllers' inside the project root 
 To carry out the actions to the database, I have created a model folder that includes the classes that implement the actions.
 There is the class 'BookShopDbConnection' that creates the connection to the database. The other classes implement the actions for each table of the database.  
 
+### API endpoints
+
+Verb            endpoint                    action
+
+POST            api/users                   A user can register to the platform.
+
+DELETE          api/users/{id}              A user can un-register to the platform. 
+
+GET/PUT         api/user/{id}               A user can access their personal data and update their details (no                                                      authentication required).
+
+GET             api/books                   A user can list all books currently available in the store.
+
+GET             api/books/{id}              A user can list the details of a specific book.
+
+POST            api/purchases               A user can purchase books from the store.
+
+GET             api/purchases?user_id=id    A user can access his purchase history.
+
+### Json examples
+Endpoints that consumes Json:
+
+POST     api/users
+{
+	"email": "newUser.email.com",
+	"password":"newUserpass",
+	"name":"newUserName",
+	"surname":"newUserSurname"	
+}
+
+PUT         api/user/{id}
+{
+	"email": "ModifiedUser.email.com",
+	"password":"ModifiedUserpass",
+	"name":"ModifiedUserName",
+	"surname":"ModifiedUserSurname"	
+}
+
+POST          api/purchases
+
+{
+	"book_id": "3",
+	"user_id":"1"
+}
+
+
 ### Testing
 
 I use Nunit package to test the code because it is the most popular and used. I have decided not to test the get requests because it is not a critical part and I do not have many time to spend creating tests for this requests.
 
-To test the update of a user I allways update the user with id 1. x.
+To test the update of a user I always update the user with id 1.
 
 To test the elimination of a user, a new user is created and then deleted. I wanted to delete the user created to test the registration this would be my goal if I had more time.
-
-##
