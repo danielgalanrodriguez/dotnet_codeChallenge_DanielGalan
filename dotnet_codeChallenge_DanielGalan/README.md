@@ -106,3 +106,9 @@ I use Nunit package to test the code because it is the most popular and used. I 
 To test the update of a user I always update the user with id 1.
 
 To test the elimination of a user, a new user is created and then deleted. I wanted to delete the user created to test the registration this would be my goal if I had more time.
+
+### Logging Framework
+
+I use the Logging extension provided in .NET core because it is the most simple way to display logs that I have found.
+
+I used it to check the endpoint hits from the controller.
