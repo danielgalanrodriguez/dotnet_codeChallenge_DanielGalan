@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using dotnet_codeChallenge_DanielGalan.Models;
 
 namespace dotnet_codeChallenge_DanielGalan.Controllers
@@ -13,13 +14,20 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
     public class BooksController : ControllerBase
     {
         private Books book = new Books();
+        private readonly ILogger _logger;
+
+        public BooksController(ILogger<BooksController> logger)
+        {
+            _logger = logger;
+        }
+
                // GET: api/books
         [HttpGet]
         [Produces("application/json")]
         public IEnumerable<string> get()
         {   
           
-
+            _logger.LogInformation("Getting all books");
             yield return book.getAllBooks();
         }
 
@@ -30,6 +38,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
 
         public IEnumerable<string> get(int id)
         {
+            _logger.LogInformation("Getting book with id="+id);
             yield return  book.getBookDetails(id);
         }
         

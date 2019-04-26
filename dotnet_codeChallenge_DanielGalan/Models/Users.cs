@@ -148,7 +148,7 @@ namespace dotnet_codeChallenge_DanielGalan.Models
 
             return result;
         }
-        catch (Exception e)
+        catch (Exception)
         {
              return -1;
         }

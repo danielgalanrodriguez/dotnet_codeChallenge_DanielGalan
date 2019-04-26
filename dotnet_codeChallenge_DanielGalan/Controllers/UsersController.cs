@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using dotnet_codeChallenge_DanielGalan.Models;
 
 namespace dotnet_codeChallenge_DanielGalan.Controllers
@@ -14,11 +15,19 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
     {
           private Users user = new Users();
 
+        private readonly ILogger _logger;
+
+        public UsersController(ILogger<UsersController> logger)
+        {
+            _logger = logger;
+        }          
+
         // GET: api/users/1
         [HttpGet("{id:int}")]
         [Produces("application/json")]
         public IEnumerable<string> get(int id)
         {
+            _logger.LogInformation("Getting user with id="+id);
             yield return user.getUserProfile(id);
         }
 
@@ -29,6 +38,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
         [Produces("application/json")]
         public IEnumerable<string> post([FromBody]Users user)
         {
+           _logger.LogInformation("Persisting a user");            
            yield return user.registerUser();
         }
 
@@ -37,7 +47,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
         [Produces("application/json")]
         public IEnumerable<string> delete(int id)
         {
-
+          _logger.LogInformation("Deleting user with id="+id);
            yield return user.deleteUser(id);
         }
 
@@ -48,6 +58,7 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
 
         public IEnumerable<string> update(int id, Users user)
         {
+             _logger.LogInformation("Updating user with id="+id);
             user.id=id;
            yield return user.updateUser();
         }
