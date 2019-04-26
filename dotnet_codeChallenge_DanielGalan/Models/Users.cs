@@ -20,7 +20,6 @@ namespace dotnet_codeChallenge_DanielGalan.Models
         public Users()
         {
             this.bookShopConnection = new BookShopDbConnection();
-            
             this.myDbConnection = this.bookShopConnection.getDbConnexion();
             this.myDbCommand =  myDbConnection.CreateCommand(); 
             
