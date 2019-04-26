@@ -30,7 +30,7 @@ There is the class 'BookShopDbConnection' that creates the connection to the dat
 
 I use Nunit package to test the code because it is the most popular and used. I have decided not to test the get requests because it is not a critical part and I do not have many time to spend creating tests for this requests.
 
-To test the update of a user I allways update the user with id 1. I wanted to update the user created to test the registration this would be my goal if I had more time.
+To test the update of a user I allways update the user with id 1. x.
 
 To test the elimination of a user, a new user is created and then deleted. I wanted to delete the user created to test the registration this would be my goal if I had more time.
 
