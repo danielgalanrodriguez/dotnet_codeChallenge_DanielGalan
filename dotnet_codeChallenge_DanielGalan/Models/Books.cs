@@ -45,11 +45,11 @@ namespace dotnet_codeChallenge_DanielGalan.Models
             
             myDataReader.Close();
 
-            string joined = String.Join(",", queryResult);
+            string queryResultJoined = String.Join(",", queryResult);
 
             myDbConnection.Close();
 
-            return joined;
+            return queryResultJoined;
         }
         catch (Exception e)
         {
@@ -78,11 +78,11 @@ namespace dotnet_codeChallenge_DanielGalan.Models
             
             myDataReader.Close();
 
-            string joined = String.Join(",", queryResult);
+            string queryResultJoined = String.Join(",", queryResult);
 
             myDbConnection.Close();
 
-            return joined;
+            return queryResultJoined;
         }
         catch (Exception e)
         {
