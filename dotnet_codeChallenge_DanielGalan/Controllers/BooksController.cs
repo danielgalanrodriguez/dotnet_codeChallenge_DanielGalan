@@ -26,6 +26,8 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
 
         // GET: api/books/5
         [HttpGet("{id:int}")]
+        [Produces("application/json")]
+
         public IEnumerable<string> get(int id)
         {
             yield return  book.getBookDetails(id);

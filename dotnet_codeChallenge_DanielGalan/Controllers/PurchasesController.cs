@@ -31,26 +31,5 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
         {
            yield return purchase.registerPurchase();
         }
-/*
-        // DELETE: api/users/1
-        [HttpDelete("{id:int}")] 
-        [Produces("application/json")]
-        public IEnumerable<string> delete(int id)
-        {
-
-           yield return user.deleteUser(id);
-        }
-
-        // PUT: api/users/1
-        [HttpPut("{id:int}")] 
-        [Consumes("application/json")]
-        [Produces("application/json")]
-
-        public IEnumerable<string> update(int id, Users user)
-        {
-            user.id=id;
-           yield return user.updateUser();
-        }
-        */
     }
 }
