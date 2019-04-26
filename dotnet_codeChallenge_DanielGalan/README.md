@@ -14,22 +14,23 @@ The requirements to use this API are the followings:
 This steps are for linux O.S. . If you are using other O.S please change steps 5-8 for the appropriates of your O.S . 
 
 1. Download the repository.
-2. Install Nuget packages Nunit and MySql.data in dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan
-3. Import the example database 'bookShop.sql' in your MySql server  
+2. Install Nuget packages Nunit and MySql.data in dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan .
+3. Import the example database 'bookShop.sql' in your MySql server.  
 4. Change the configuration string 'myDbConnectionString' in dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan/Models/BookShopDbConnection.cs with your personal MySql configuration.
-5. To run the API application open a terminal with the working directory dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan/
+5. To run the API application open a terminal with the working directory dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan/ .
 6. Execute the next command and open the URL generated:
 ```bash
 dotnet run
 ```
-7. To run the tests open a terminal with the working directory dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan.Tests/
-8. Execute:
+7. To run the tests open a terminal with the working directory dotnet_codeChallenge_DanielGalan/dotnet_codeChallenge_DanielGalan.Tests/ .
+8. Execute and see results in terminal:
 ```bash
 dotnet test 
 ```
 
 ### Pakages needed
 [Nuget MySql.Data](https://www.nuget.org/packages/MySql.Data/)
+
 [Nuget Nunit](https://www.nuget.org/packages/NUnit/)
 
 
