@@ -12,31 +12,23 @@ namespace dotnet_codeChallenge_DanielGalan.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-
+        private Books book = new Books();
                // GET: api/books
         [HttpGet]
         [Produces("application/json")]
         public IEnumerable<string> get()
         {   
-            Books books = new Books();
+          
 
-            yield return books.getAllBooks();
+            yield return book.getAllBooks();
         }
 
 
         // GET: api/books/5
         [HttpGet("{id:int}")]
-        public string get(int id)
+        public IEnumerable<string> get(int id)
         {
-            return  $"Hi! i'm book number {id}";
-        }
-
-
-        // POST: api/books
-        [HttpPost]
-        public void post([FromBody]string value)
-        {
-            //return  $"Hi! i'm user number {value}";
+            yield return  book.getBookDetails(id);
         }
         
     }
